@@ -1,0 +1,69 @@
+<% content_for :page_title do %>
+  <%= Spree.t(:post) %> ID: <%= @post.id %>
+<% end %>
+<% content_for :page_actions do %>
+
+ <%= link_to_edit @post, class: false %>
+<% end %>
+
+
+<div class="row">
+  <div class="col-md-8">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= Spree.t(:summary) %></h3>
+  </div>
+  <table class="table table-condensed table-bordered" id="post_tab_summary" data-hook>
+    <tbody class="additional-info">
+      <tr>
+        <td id="post_customer_name" width="35%" data-hook>
+          <strong><%= Spree.t(:author) %>:</strong>
+        </td>
+        <td>
+          <% if @post.user.bill_address %>
+          <%=link_to "#{@post.user.bill_address.first_name} #{@post.user.bill_address.last_name}", admin_user_path(@post.user) %>
+           <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td data-hook>
+          <strong><%= Spree.t(:title) %>:</strong>
+        </td>
+        <td id='post_title'>
+          <%= @post.title %>
+        </td>
+      </tr>
+      <tr>
+        <td id="post_content" width="35%" data-hook>
+          <strong><%= Spree.t(:content) %>:</strong>
+        </td>
+        <td>
+          <%= Spree.t(@post.content) %>
+        </td>
+      </tr>
+      <tr>
+        <td data-hook>
+          <strong><%= Spree.t(:meta_description) %>:</strong>
+        </td>
+        <td id='post_meta_description'>
+          <%= Spree.t(@post.meta_description) %>
+        </td>
+      </tr>
+      <tr>
+        <td data-hook>
+        </td>
+        <td id='post_featured_image'>
+          <a href="<%= @post.featured_image.url%>">
+   <%= image_tag @post.featured_image.url, :style => "max-width:49%" %>
+   </a>
+        </td>
+      </tr>
+              
+
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</div>

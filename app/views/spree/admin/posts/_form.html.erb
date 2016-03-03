@@ -1,0 +1,30 @@
+<div data-hook="admin_post_form_fields" class="row">
+  <div class="col-md-10">
+      <%= f.field_container :title, class: ['form-group'] do %>
+      <%= f.label :title %>
+      <%= f.text_field :title, :class => 'form-control error' %>
+      <%= error_message_on :post, :title %>
+    <% end %>
+      <%= f.field_container :content, class: ['form-group'] do %>
+      <%= f.label :content %>
+      <%= f.cktext_area :content, :ckeditor => {:language => 'en-gb'}, :class => 'form-control error' %>
+      <%= error_message_on :post, :content %>
+    <% end %>
+      <%= f.field_container :meta_description, class: ['form-group'] do %>
+      <%= f.label :meta_description %>
+      <%= f.text_field :meta_description, :class => 'form-control error' %>
+      <%= error_message_on :post, :meta_description %>
+    <% end %>
+      <%= f.field_container :featured_image, class: ['form-group'] do %>
+      <%= f.label :featured_image %>
+      <%= f.file_field :featured_image, accept: 'image/jpeg,image/gif,image/png', :class => 'form-control error' %>
+      <%= error_message_on :post, :featured_image %>
+    <% end %>
+    <%= f.field_container :featured_image, class: ['form-group'] do %>
+      <%= f.label :published %>
+      <%= f.check_box :published, :class => 'form-control error' %>
+      <%= error_message_on :post, :published %>
+    <% end %>
+    <%= f.hidden_field :user_id, :value => spree_current_user.id %>
+    </div>
+</div>
