@@ -5,6 +5,11 @@
       <%= f.text_field :title, :class => 'form-control error' %>
       <%= error_message_on :post, :title %>
     <% end %>
+      <%= f.field_container :created_at, class: ['form-group'] do %>
+      <%= f.label :created_at %>
+      <%= f.text_field :created_at, :class => 'datepicker form-control' %>      
+      <%= error_message_on :post, :created_at %>
+    <% end %>
       <%= f.field_container :content, class: ['form-group'] do %>
       <%= f.label :content %>
       <%= f.cktext_area :content, :ckeditor => {:language => 'en-gb'}, :class => 'form-control error' %>
