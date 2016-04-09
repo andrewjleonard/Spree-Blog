@@ -1,9 +1,3 @@
-<% content_for :page_title do %>
-<%= Spree.t(:all_posts) %>
-<% end %>
-<% content_for :page_actions do %>
- <%= button_link_to Spree.t(:add_post), new_admin_post_path(@handbag), class: 'btn-success', icon: 'edit' %>
-<% end %>
 <table class="table sortable" id="limbo_posts">
   <thead>
     <tr data-hook="admin_posts_index_headers">
@@ -17,13 +11,8 @@
   <tbody>
     <% @posts.each do |post| %>
     <tr id="<%= spree_dom_id post %>" data-hook="admin_posts_index_rows" class="<%= cycle('odd', 'even')%>">
-      <td><%= link_to post.id, edit_object_url(post) %></td>
-      <td><%= link_to post.title, edit_object_url(post) %></td>
-      <td><%= link_to post.published_date.blank?? 'Not published' : post.published_date.strftime("%d/%m/%Y"), edit_object_url(post) %></td>
-      <td><%= link_to post.try(:updated_at).strftime("%d/%m/%Y"), edit_object_url(post) %></td>
-      <td><%= link_to post.created_at.strftime("%d/%m/%Y"), edit_object_url(post) %></td>
+      <td><%= link_to post.id, post.slug %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
-<%= paginate @posts %>
