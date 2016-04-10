@@ -4,8 +4,9 @@ class FeaturedImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   version :thumb do
-    process :resize_to_fill => [118, 100]
+   process resize_to_fill: [850, 450, "Center"]
   end
+   process resize_to_fill: [1080, 720, "Center"]
 
 
 

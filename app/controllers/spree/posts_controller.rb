@@ -4,5 +4,8 @@ module Spree
     def index
     	@posts = Spree::Post.all
     end
-  end
+    def show
+    	@post = Spree::Post.find_by_slug(params[:slug])
+    end
+end
 end
