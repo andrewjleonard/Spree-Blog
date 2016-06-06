@@ -25,11 +25,7 @@
       <%= f.file_field :featured_image, accept: 'image/jpeg,image/gif,image/png', :class => 'form-control error' %>
       <%= error_message_on :post, :featured_image %>
     <% end %>
-    <%= f.field_container :slug, class: ['form-group'] do %>
-      <%= f.label :slug %>
-      <%= f.text_field :slug, :class => 'form-control error' %>
-      <%= error_message_on :post, :slug %>
-    <% end %>    <%= f.field_container :published, class: ['form-group'] do %>
+    <%= f.field_container :published, class: ['form-group'] do %>
       <%= f.label :published %>
       <%= f.check_box :published, :class => 'form-control error' %>
       <%= error_message_on :post, :published %>

@@ -5,7 +5,7 @@ module Spree
     	@posts = Spree::Post.all
     end
     def show
-    	@post = Spree::Post.find_by_slug(params[:slug])
+    	@post = Spree::Post.friendly.find(params[:id])
     end
 end
 end
