@@ -1,7 +1,7 @@
 module Spree
   class Post < ActiveRecord::Base
   extend FriendlyId
-  friendly_id :title, use: :slugged
+  friendly_id :title, use: [:slugged, :finders]
   belongs_to :user
 	validates :user_id,:title,:content,:meta_description, presence: true
   mount_uploader :featured_image, FeaturedImageUploader

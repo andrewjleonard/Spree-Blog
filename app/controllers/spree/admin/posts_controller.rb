@@ -4,7 +4,9 @@ module Spree
       def index
         @posts = Spree::Post.all.page(params[:page]).per(50)
       end
-
+    def show
+      @post = Spree::Post.friendly.find(params[:id])
+    end
       private
       def post_params
         params.require(:post).permit(:featured_image)
