@@ -1,6 +1,7 @@
 module Spree
   class PostsController < Spree::StoreController
     rescue_from ActiveRecord::RecordNotFound, :with => :render_404
+    helper_method :my_meta_data
 
 
     def index
@@ -21,6 +22,12 @@ module Spree
         })
       end
     end
+  private
+  def my_meta_data
+    meta = ({
+              description: "The Handbag Spa is a UK based handbag cleaning and repair service for all handbags including luxury bags such as Mulberry and Hermès and many more."
+    })
+  end
 
 
 
