@@ -20,6 +20,13 @@
       <%= f.text_field :meta_description, :class => 'form-control error' %>
       <%= error_message_on :post, :meta_description %>
     <% end %>
+    <% if f.object.slug.present? %>
+    <%= f.field_container :slug, class: ['form-group'] do %>
+    <%= f.label :slug %>
+    <%= f.text_field :slug, :class => 'form-control error' %>
+    <%= error_message_on :post, :slug %>
+  <% end %>
+  <% end %>
       <%= f.field_container :featured_image, class: ['form-group'] do %>
       <%= f.label :featured_image %><br>
       <%= f.object.featured_image.present? ? image_tag(f.object.featured_image.url(:thumb))

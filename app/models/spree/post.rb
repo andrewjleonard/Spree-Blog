@@ -3,7 +3,7 @@ module Spree
   extend FriendlyId
   friendly_id :title, use: [:slugged, :finders, :history]
   belongs_to :user
-	validates :user_id,:title,:content,:meta_description, presence: true
+	validates :user_id,:title,:content,:meta_description,:slug, presence: true
   mount_uploader :featured_image, FeaturedImageUploader
   validate :init
   acts_as_list
