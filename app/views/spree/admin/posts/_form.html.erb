@@ -7,12 +7,12 @@
     <% end %>
       <%= f.field_container :created_at, class: ['form-group'] do %>
       <%= f.label :created_at %>
-      <%= f.text_field :created_at, :class => 'datepicker form-control' %>      
+      <%= f.text_field :created_at, :class => 'datepicker form-control' %>
       <%= error_message_on :post, :created_at %>
     <% end %>
       <%= f.field_container :content, class: ['form-group'] do %>
       <%= f.label :content %>
-      <%= f.cktext_area :content, :ckeditor => {:language => 'en-gb'}, :class => 'form-control error' %>
+      <%= f.cktext_area :content, :ckeditor => {:language => 'en-gb', height: 500}, :class => 'form-control error' %>
       <%= error_message_on :post, :content %>
     <% end %>
       <%= f.field_container :meta_description, class: ['form-group'] do %>
@@ -21,7 +21,9 @@
       <%= error_message_on :post, :meta_description %>
     <% end %>
       <%= f.field_container :featured_image, class: ['form-group'] do %>
-      <%= f.label :featured_image %>
+      <%= f.label :featured_image %><br>
+      <%= f.object.featured_image.present? ? image_tag(f.object.featured_image.url(:thumb))
+    : content_tag(:span, "No Featured Image Set") %>
       <%= f.file_field :featured_image, accept: 'image/jpeg,image/gif,image/png', :class => 'form-control error' %>
       <%= error_message_on :post, :featured_image %>
     <% end %>
